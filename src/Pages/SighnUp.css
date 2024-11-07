@@ -1,0 +1,72 @@
+body {
+  background: #1e1e1e;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.SignUp { /* תיקון השם כאן ל-SignUp */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* מלא גובה המסך */
+  width: 100vw; /* מלא רוחב המסך */
+}
+
+.SignUp-container {
+  background: #282c34;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 90%; /* רוחב של 90% מהמסך */
+  max-width: 500px; /* הגבלה על הרוחב המרבי */
+  text-align: center;
+}
+
+h1 {
+  color: #61dafb;
+  margin-bottom: 20px;
+  font-size: 2em; /* גודל טקסט מותאם */
+}
+
+.SignUp-input {
+  width: calc(100% - 20px);
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  background: #3a3a3a;
+  color: #fff;
+  font-size: 1em; /* גודל טקסט מותאם */
+}
+
+.SignUp-input::placeholder {
+  color: #aaa;
+}
+
+.SignUp-button {
+  width: calc(50% - 10px);
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background: #61dafb;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  margin: 5px;
+  font-size: 1em; /* גודל טקסט מותאם */
+}
+
+.SignUp-button:hover {
+  background: #4fa3d8;
+  transform: scale(1.05);
+}
+
+.SignUp-button:active {
+  background: #3a8fb7;
+}

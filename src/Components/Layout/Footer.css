@@ -1,0 +1,45 @@
+.Footer {
+    background: #1e1e1e;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
+  
+  .Footer p {
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0;
+    color: #aaa;
+  }
+  
+  .Footer p::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 2px;
+    background: #61dafb;
+    margin: 10px auto 0;
+    transition: width 0.3s;
+  }
+  
+  .Footer:hover p::after {
+    width: 150px;
+  }
+  
+  .Footer a {
+    color: #61dafb;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .Footer a:hover {
+    color: #4fa3d8;
+    transform: scale(1.05);
+  }
+  
+  .Footer a:active {
+    color: #3a8fb7;
+  }
+  

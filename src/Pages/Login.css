@@ -1,0 +1,74 @@
+/* Login.css */
+
+body {
+  background: #1e1e1e;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* גובה מלא */
+}
+
+.Login {
+  display: flex;
+  justify-content: center; /* מרכז את התוכן אופקית */
+  align-items: center; /* מרכז את התוכן אנכית */
+  height: 100%; /* מלא גובה ההורה */
+  width: 100%; /* מלא רוחב ההורה */
+}
+
+.login-container {
+  background: #282c34;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 90%; /* רוחב של 90% מהמסך */
+  max-width: 500px; /* הגבלה על הרוחב המרבי */
+  text-align: center;
+}
+
+h1 {
+  color: #61dafb;
+  margin-bottom: 20px;
+  font-size: 2em; /* גודל טקסט מותאם */
+}
+
+.login-input {
+  width: calc(100% - 20px);
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  background: #3a3a3a;
+  color: #fff;
+  font-size: 1em; /* גודל טקסט מותאם */
+}
+
+.login-input::placeholder {
+  color: #aaa;
+}
+
+.login-button {
+  width: calc(50% - 10px);
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background: #61dafb;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  margin: 5px;
+  font-size: 1em; /* גודל טקסט מותאם */
+}
+
+.login-button:hover {
+  background: #4fa3d8;
+  transform: scale(1.05);
+}
+
+.login-button:active {
+  background: #3a8fb7;
+}

@@ -1,0 +1,67 @@
+.map-container {
+    position: absolute; /* ממקם את המפה יחסית לחלון */
+    top: 0; /* מתחיל מהחלק העליון */
+    left: 0; /* מתחיל מהצד השמאלי */
+    height: 100vh; /* גובה מלא של חלון הדפדפן */
+    width: 100vw; /* רוחב מלא של חלון הדפדפן */
+    overflow: hidden; /* מניעת גלילה */
+}
+
+.input-container {
+    background: rgba(40, 44, 52, 0.8); /* רקע שקוף כהה */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: absolute; /* ממקם את תיבת הקלט בצורה חופשית */
+    top: 20px; /* גובה מהחלק העליון */
+    left: 20px; /* גובה מהצד השמאלי */
+    z-index: 1000; /* מבטיח שהקלטים יהיו מעל המפה */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* רווח בין השדות */
+    width: 300px; /* קבע רוחב קבוע לתיבת הקלט */
+}
+
+label {
+    color: #61dafb; /* צבע טקסט של התוויות */
+    font-size: 1.1em; /* גודל טקסט מותאם */
+}
+
+input[type="number"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #61dafb; /* גבול בגוון טורקיז */
+    background: #3a3a3a; /* רקע כהה */
+    color: #fff; /* טקסט לבן */
+    font-size: 1em; /* גודל טקסט מותאם */
+    transition: border-color 0.3s; /* אנימציה לגבול */
+    width: 95%; /* תופס את כל רוחב הקלט */
+}
+
+input[type="number"]::placeholder {
+    color: #aaa; /* צבע טקסט עבור תיבת placeholder */
+}
+
+input[type="number"]:focus {
+    border-color: #4fa3d8; /* גבול כשממוקדים */
+    outline: none; /* הסרת קו מתאר */
+}
+
+.DisconnectedBtn {
+    background: #61dafb; /* צבע הרקע */
+    color: #fff; /* צבע טקסט */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.DisconnectedBtn:hover {
+    background: #4fa3d8; /* צבע כשמעבירים מעל */
+    transform: scale(1.05);
+}
+
+.DisconnectedBtn:active {
+    background: #3a8fb7; /* צבע כשנלחצים */
+}

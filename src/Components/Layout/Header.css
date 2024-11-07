@@ -1,0 +1,65 @@
+.Header {
+  background: #1e1e1e;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav span {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #fff;
+  position: relative;
+}
+
+nav span::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #61dafb;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s;
+}
+
+nav span:hover::after {
+  width: 100%;
+}
+
+nav a {
+  color: #61dafb;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+  color: #4fa3d8;
+  transform: scale(1.05);
+}
+
+nav a:active {
+  color: #3a8fb7;
+}
+
+.Header .logo {
+  font-size: 2.09em;
+  font-weight: 700;
+  color: #61dafb;
+}
+
+.Header .greeting {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}

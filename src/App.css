@@ -1,0 +1,127 @@
+/* App.css */
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  justify-content: center; /* מרכז את התוכן אנכית */
+  align-items: center; /* מרכז את התוכן אופקית */
+}
+
+header {
+  background: #282c34;
+  padding: 20px;
+  text-align: center;
+  width: 70%; /* הגבלת רוחב ל-90% */
+  max-width: 1040px; /* קביעת רוחב מרבי */
+  margin: 20px 0; /* רווח סביב ה-header */
+
+}
+
+.accessibility-buttons {
+  position: absolute; /* ממקם את הכפתורים בצורה חופשית */
+  top: 10px; /* מרחק מהקצה העליון */
+  left: 10px; /* מרחק מהקצה השמאלי */
+  display: flex; /* מציב את הכפתורים בשורה */
+  gap: 10px; /* רווח בין הכפתורים */
+}
+
+footer {
+  background: #282c34;
+  padding: 10px;
+  text-align: center;
+  margin-top: auto; /* דוחף את הפוטר לתחתית */
+}
+
+.login-container,
+.signup-container {
+  background: #282c34;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 90%; /* רוחב של 90% */
+  max-width: 500px; /* קביעת רוחב מרבי */
+  text-align: center;
+}
+
+h1,
+h2 {
+  color: #ff0202; /* צבע כותרות */
+}
+
+a {
+  color: #00bcd4; /* צבע קישורים */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline; /* קו תחתון בהובר */
+}
+
+button {
+  background-color: #00bcd4; /* צבע הכפתור */
+  color: #121212; /* צבע הטקסט */
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #0097a7; /* גוון כהה יותר בהובר */
+}
+
+.Time {
+  position: fixed; /* מיקום קבוע */
+  top: 10px; /* מרחק מהקצה העליון */
+  right: 10px; /* מרחק מהקצה הימני */
+  background: #333; /* צבע רקע כהה */
+  color: #fff; /* צבע טקסט לבן */
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.timer-box {
+  position: fixed; /* ממקם את הבוקס בפינה התחתונה */
+  bottom: 20px; /* ממקם את הבוקס בצד התחתון */
+  left: 20px; /* ממקם את הבוקס בצד השמאלי */
+  background-color: rgba(0, 0, 0, 0.8);
+  color: rgb(245, 245, 245);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(255, 0, 0, 0.863);
+  text-align: center;
+  width: 300px; /* קביעת רוחב קבוע */
+  height: 200px; /* קביעת גובה קבוע */
+}
+
+.timer-box button#X {
+  position: absolute; /* מיקום הכפתור X */
+  top: 5px; /* מרחק מהקצה העליון */
+  right: 5px; /* מרחק מהקצה הימני */
+  background-color: transparent; /* רקע שקוף */
+  color: white; /* צבע טקסט לבן */
+  border: none;
+  font-size: 18px; /* גודל טקסט */
+  font-weight: bold; /* משקל טקסט */
+  cursor: pointer; /* סמן ליד */
+}
+
+.timer-box button#X:hover {
+  color: red; /* שינוי צבע הכפתור בהובר */
+}
+
+/* נגישות */
+.App.large-text {
+  font-size: 1.11rem; /* שינוי גודל הכתב */
+}
+
+.App.high-contrast {
+  background-color: #fff; /* צבע רקע בהיר */
+  color: #000; /* צבע טקסט כהה */
+}
