@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Circle, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -28,7 +28,7 @@ function MapWithRadius() {
 
   // שמירה על שם המשתמש אם הוא מחובר
   useEffect(() => {
-    axios.get('http://localhost:4000/getcookie', { withCredentials: true })
+    axios.get('http://localhost:5000/getcookie', { withCredentials: true })
       .then((response) => {
         setName(response.data.user); // שמירת שם המשתמש ב-state
         console.log(name);
@@ -54,7 +54,7 @@ function MapWithRadius() {
       click(e) {
         setMarkers((prevMarkers) => [
           ...prevMarkers,
-          { lat: e.latlng.lat, lng: e.latlng.lng },
+          { lat: e.latlng.lat, lng: e.latlng.lng },   
         ]);
       },
     });
@@ -87,6 +87,7 @@ function MapWithRadius() {
             type="number"
             value={radius}
             onChange={(e) => setRadius(parseFloat(e.target.value))}
+            min={0}
           />
         </label>
       </div>

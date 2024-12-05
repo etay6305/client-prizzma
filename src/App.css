@@ -116,12 +116,4 @@ button:hover {
   color: red; /* שינוי צבע הכפתור בהובר */
 }
 
-/* נגישות */
-.App.large-text {
-  font-size: 1.11rem; /* שינוי גודל הכתב */
-}
 
-.App.high-contrast {
-  background-color: #fff; /* צבע רקע בהיר */
-  color: #000; /* צבע טקסט כהה */
-}

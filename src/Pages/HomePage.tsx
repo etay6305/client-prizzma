@@ -1,5 +1,4 @@
 import './HomePage.css';
-import React from 'react';
 
 function HomePage() {
   return (

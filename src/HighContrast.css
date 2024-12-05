@@ -1,0 +1,27 @@
+/* App.css */
+.HighContrast {
+    /* כאן תוכל להוסיף סגנונות נוספים */
+    transition: filter 0.3s ease; /* מעברים רכים כאשר הבהירות משתנה */
+  }
+  
+  .Slider {
+    width: 200px; /* ניתן לשנות את הערך לגודל הרצוי */
+    margin: 5px auto; /* מרכז את ה-Slider */
+  }
+  
+  .MuiSlider-root {
+    height: 8px; /* קביעת גובה ה-slider */
+  }
+  
+  .MuiSlider-thumb {
+    width: 16px; /* קביעת גודל ה-thumb (הכדור הקטן שנגרר) */
+    height: 16px;
+  }
+  
+  .MuiSlider-rail {
+    background-color: #d3d3d3; /* צבע הרייל (הקו העדין שמאחורי ה-slider) */
+  }
+  
+  .MuiSlider-track {
+    background-color: #4813da; /* צבע הקו הפעיל של ה-slider */
+  }

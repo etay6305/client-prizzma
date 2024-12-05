@@ -5,7 +5,7 @@ import axios from 'axios';
 // import Swal from 'sweetalert2';
 import { io } from 'socket.io-client'; // הוספת Socket.IO
 import { useNavigate } from 'react-router-dom';
-const socket = io('http://localhost:4000');
+const socket = io('http://localhost:5000');
 
 function Chat() {
     //const { user } = useContext(UserContext);
@@ -18,7 +18,7 @@ function Chat() {
     
     const navigate = useNavigate();
   useEffect(() => {
-    axios.get('http://localhost:4000/getcookie', { withCredentials: true })
+    axios.get('http://localhost:5000/getcookie', { withCredentials: true })
       .then((response) => {
         if(response.data.user) {
             setName(response.data.user); // שמירת הנתונים ב-state

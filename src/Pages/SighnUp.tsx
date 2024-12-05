@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import BackBtn from '../BackBtn';
 
 function SighnUp() {
   const [name, setName] = useState<string>();
@@ -22,7 +23,7 @@ function SighnUp() {
     if (e) e.preventDefault();  // נוודא שאם הפונקציה נקראת מטופס, תבוצע מניעה של ברירת המחדל
 
     try {
-      const response = await axios.post('http://localhost:4000/sighn-password', {
+      const response = await axios.post('http://localhost:5000/sighn-password', {
         name, // שליחת שם המשתמש לשרת
         password, // שליחת הסיסמה לשרת
         email
@@ -85,6 +86,7 @@ function SighnUp() {
           />
         </div>
         <button type="submit">Sign Up</button>
+        <BackBtn/>
       </form>
       {ded && <h3>{ded}</h3>}
     </div>

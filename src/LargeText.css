@@ -1,0 +1,6 @@
+/* LargeText.css */
+body.large-text {
+    font-size: 1.11rem; /* גודל טקסט מוגדל */
+    transition: font-size 0.3s ease; /* אנימציה עדינה בעת שינוי הגודל */
+}
+  

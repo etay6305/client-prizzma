@@ -1,8 +1,9 @@
 import './ChangePassword.css';
-import React, { useState} from 'react';
+import { useState} from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import BackBtn from '../BackBtn';
 
 
 function ChangePassword() {
@@ -20,7 +21,7 @@ function ChangePassword() {
     };
     const apiCall = async () => {
         
-        await axios.post('http://localhost:4000/change-password', {
+        await axios.post('http://localhost:5000/change-password', {
           new_name: new_name,
           new_password: new_password,
           password: password,//password,  // שליחת הסיסמה לשרת
@@ -99,7 +100,7 @@ function ChangePassword() {
          onKeyDown={handleKeyDown}
         />
         <input
-        type="password"
+        type="text"
         value={password}
         onChange={(e) => setPassword(e.target.value)} // עדכון הסיסמה ב-state
         placeholder="Enter password"
@@ -108,6 +109,7 @@ function ChangePassword() {
         />
         <br/>
         <button  onClick={apiCall} className="login-button">change password</button>
+        <BackBtn/>
     </div>
   );
 }

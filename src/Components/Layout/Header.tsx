@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Login from "../../Pages/Login";
 import HomePage from "../../Pages/HomePage";
@@ -17,7 +17,7 @@ function Header() {
   const [name, setName] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:4000/getcookie' , { withCredentials: true })
+    axios.get('http://localhost:5000/getcookie' , { withCredentials: true })
       .then((response) => {
         if(response.data.user) {
           setName(response.data.user); // שמירת הנתונים ב-state

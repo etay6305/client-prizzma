@@ -8,7 +8,7 @@ function DisconnectedBtn() {
     const [name, setName] = useState('');
     const navigate = useNavigate();
     useEffect(() => {
-        axios.get('http://localhost:4000/getcookie', { withCredentials: true })
+        axios.get('http://localhost:5000/getcookie', { withCredentials: true })
           .then((response) => {
             setName(response.data.user); // שמירת הנתונים ב-state
           })
@@ -19,7 +19,7 @@ function DisconnectedBtn() {
     
       const handleLogout = async () => {
         try {
-            const response = await axios.delete('http://localhost:4000/deletecookie', {
+            const response = await axios.delete('http://localhost:5000/deletecookie', {
                 withCredentials: true, // ווידוא שליחת ה-cookie לשרת
             });
     

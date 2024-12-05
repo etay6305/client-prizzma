@@ -1,9 +1,12 @@
-import Reac, { useState, useEffect  } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect  } from 'react'
 import './App.css'
 import Header from './Components/Layout/Header';
+import HighContrast from './HighContrast';
+import LargeText from './LargeText';
 //import Footer from './Components/Layout/Footer';
+
+
+const TIME_SINCE_YG = 86400000
 
 
 // פונקציה להחזרת השעה הנוכחית
@@ -12,12 +15,12 @@ function TimeNow() {
   return now.toTimeString();
 }
 
+// components
 function App() {
   const [time, setTime] = useState(TimeNow());
-  const [days, setDays] = useState(346);
+  const [days, setDays] = useState(346); //const
   const [visible, setVisible] = useState(true);
-  const [largeText, setLargeText] = useState(false);
-  const [highContrast, setHighContrast] = useState(false);
+  
 
   const handleClose = () => {
     setVisible(false);
@@ -26,7 +29,7 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       setDays((prevDays) => prevDays + 1);
-    }, 86400000);
+    }, TIME_SINCE_YG);
     return () => clearInterval(interval);
   }, []);
 
@@ -38,13 +41,14 @@ function App() {
   }, []);
 
   return (
-    <div className={`App ${largeText ? 'large-text' : ''} ${highContrast ? 'high-contrast' : ''}`}>
+    <div className={`App`}>
+      
       <header>
         <Header />
         <span className="Time">{time} |</span>
         <div className="accessibility-buttons">
-          <button onClick={() => setLargeText(!largeText)}>Text Size</button>
-          <button onClick={() => setHighContrast(!highContrast)}>High Contrast</button>
+          <LargeText/>
+          <HighContrast/>
         </div>
       </header>
 
