@@ -1,0 +1,107 @@
+.Transmitterbox {
+    position: absolute;
+    top: 140px; /* מרחק מהחלק העליון */
+    right: 90px; /* מיקום בצד ימין */
+    width: 360px; /* רוחב */
+    height: 65vh; /* גובה יחסי */
+    padding: 20px; /* ריפוד פנימי */
+    background: linear-gradient(135deg, #0d0d0d, #1a1a1a); /* רקע כהה עם מעבר עדין */
+    border: 1px solid rgba(0, 230, 230, 0.5); /* גבול בצבע ניאון */
+    border-radius: 12px; /* פינות מעוגלות */
+    box-shadow: 0 0 20px rgba(0, 230, 230, 0.4); /* צל ניאוני */
+    z-index: 1000; /* מעל המפה */
+    overflow-y: auto; /* גלילה אנכית */
+    overflow-x: hidden; /* מניעת גלילה אופקית */
+    color: #e0e0e0; /* טקסט בהיר */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* פונט חלק */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* אפקט מעבר עדין */
+.Transmitterbox:hover {
+    transform: translateY(-5px); /* הרמה קלה */
+    box-shadow: 0 0 25px rgba(0, 230, 230, 0.6); /* הדגשת הצל */
+}
+
+/* כותרות */
+.Transmitterbox h1 {
+    color: #00e6e6; /* צבע טורקיז ניאון */
+    font-size: 1em; /* גודל טקסט קטן יותר */
+    margin-bottom: 5px; /* רווח קטן מתחת לכותרת */
+    font-weight: 600; /* טקסט מודגש */
+    text-transform: uppercase; /* אותיות גדולות */
+    letter-spacing: 1px; /* מרווח בין אותיות */
+    text-align: center;
+    margin-top: 10px; /* רווח למעלה */
+}
+/* שדות הקלט */
+.Transmitterbox input {
+    width: calc(100% - 20px); /* שימוש ברוחב מלא */
+    padding: 12px; /* ריפוד */
+    margin-bottom: 15px; /* ריווח בין שדות */
+    border-radius: 8px; /* פינות מעוגלות */
+    border: 1px solid rgba(0, 230, 230, 0.5); /* גבול ניאון */
+    background: rgba(20, 20, 20, 0.9); /* רקע כהה */
+    color: #fff; /* טקסט לבן */
+    font-size: 1em; /* גודל טקסט */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+/* פוקוס על שדה קלט */
+.Transmitterbox input:focus {
+     border-color: #00e6e6; /* הדגשה בניאון */
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 230, 230, 0.8); /* צל ניאון */
+}
+
+/* כפתור */
+.Transmitterbox button {
+    width: 100%; /* רוחב מלא */
+    padding: 12px 20px; /* ריפוד */
+    background: linear-gradient(135deg, #00e6e6, #005f73); /* רקע מעבר ניאון */
+    color: white; /* טקסט לבן */
+    font-size: 1em; /* גודל טקסט */
+    font-weight: 500;
+    border: none; /* ללא גבול */
+    border-radius: 8px; /* פינות מעוגלות */
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+/* מעבר עכבר על הכפתור */
+.Transmitterbox button:hover {
+    background: linear-gradient(145deg, #00e6e6, #007f8f); /* כהה יותר */
+    box-shadow: 0 0 15px rgba(0, 230, 230, 0.8); /* צל ניאון */
+    transform: scale(1.05); /* הגדלה קלה */
+}
+
+/* לחיצה על הכפתור */
+.Transmitterbox button:active {
+    background: #004d61; /* כהה */
+    transform: scale(0.98); /* הקטנה קלה */
+}
+
+/* גלילה מעודנת */
+.Transmitterbox::-webkit-scrollbar {
+    width: 8px; /* רוחב גלילה */
+}
+
+.Transmitterbox::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 230, 230, 0.6); /* צבע הידית */
+    border-radius: 10px; /* עיגול הידית */
+}
+
+.Transmitterbox::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 230, 230, 0.8); /* הדגשה בגלילה */
+}
+
+.Trans{
+    position: absolute; /* ממקם את המפה יחסית לחלון */
+    top: 0; /* מתחיל מהחלק העליון */
+    left: 0; /* מתחיל מהצד השמאלי */
+    height: 100%; /* גובה מלא של חלון הדפדפן */
+    width: 90%; /* רוחב מלא של חלון הדפדפן */
+    margin-left: 10px;
+}
+

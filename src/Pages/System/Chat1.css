@@ -1,0 +1,196 @@
+/* מיקום הצ'אט במרכז המסך */
+.Chat1 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+/* עיצוב חיצוני - מסגרת דמוית אייפון */
+.chat-container {
+    width: 430px; /* רוחב דמוי אייפון */
+    height: 900px; /* גובה דמוי אייפון */
+    border-radius: 50px; /* פינות מעוגלות */
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); /* צל למציאותיות */
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border: 10px solid black; /* מסגרת שחורה כמו אייפון */
+    position: relative;
+}
+
+/* מסגרת עליונה - חריץ מצלמה ורמקול */
+.iphone-notch {
+    width: 60%;
+    height: 30px;
+    background: black;
+    border-radius: 20px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* עיצוב חריץ רמקול */
+.iphone-speaker {
+    width: 70px;
+    height: 6px;
+    background: #333;
+    border-radius: 10px;
+    margin: 5px auto;
+}
+
+/* עיצוב מצלמה */
+.iphone-camera {
+    width: 12px;
+    height: 12px;
+    background: rgb(10, 1, 1);
+    border-radius: 50%;
+    position: absolute;
+    top: 18px;
+    right: 20%;
+}
+
+/* עיצוב גוף הצ'אט */
+.chat-header {
+    padding: 15px;
+    background: #128c7e;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #ece5dd;
+    display: flex;
+    flex-direction: column;
+}
+
+/* הודעות */
+.message {
+    margin: 8px;
+    padding: 12px 16px;
+    border-radius: 20px;
+    max-width: 70%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.message.sent {
+    align-self: flex-end;
+    background-color: #dcf8c6;
+}
+
+.message.received {
+    align-self: flex-start;
+    background-color: #ffffff;
+}
+
+.message p.time {
+    font-size: 12px;
+    text-align: right;
+    margin: 5px 0 0 0;
+    color: #666;
+}
+
+/* תיבה תחתונה */
+.chat-footer {
+    display: flex;
+    padding: 15px;
+    background: #ffffff;
+    border-top: 1px solid #ddd;
+}
+
+.chat-footer input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chat-footer button {
+    margin-left: 10px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #128c7e;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.chat-footer button:hover {
+    background-color: #075e54;
+}
+
+/* כפתור הבית */
+.iphone-home-button {
+    width: 50px;
+    height: 50px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+/* שם השולח */
+.author {
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #007bff;
+  }
+  
+  .message.sent .author {
+    color: #128c7e; /* צבע עבור הודעות שנשלחו */
+  }
+  
+  .message.received .author {
+    color: #075e54; /* צבע עבור הודעות שהתקבלו */
+  }
+  
+
+  /* עיצוב וי כחול */
+.blue-tick {
+    color: #007bff; /* כחול */
+    font-size: 12px;
+    margin-left: 5px;
+  }
+  
+  /* עיצוב וי אפור */
+  .gray-tick {
+    color: #888; /* אפור */
+    font-size: 12px;
+    margin-left: 5px;
+  }
+  
+  /* שם השולח */
+  .author {
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #007bff;
+  }
+  
+  .message.sent .author {
+    color: #128c7e; /* צבע עבור הודעות שנשלחו */
+  }
+  
+  .message.received .author {
+    color: #075e54; /* צבע עבור הודעות שהתקבלו */
+  }
+  

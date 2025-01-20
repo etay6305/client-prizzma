@@ -2,9 +2,8 @@
     position: absolute; /* ממקם את המפה יחסית לחלון */
     top: 0; /* מתחיל מהחלק העליון */
     left: 0; /* מתחיל מהצד השמאלי */
-    height: 100vh; /* גובה מלא של חלון הדפדפן */
-    width: 100vw; /* רוחב מלא של חלון הדפדפן */
-    overflow: hidden; /* מניעת גלילה */
+    height: 100%; /* גובה מלא של חלון הדפדפן */
+    width: 100%; /* רוחב מלא של חלון הדפדפן */
 }
 
 .input-container {
@@ -64,4 +63,412 @@ input[type="number"]:focus {
 
 .DisconnectedBtn:active {
     background: #3a8fb7; /* צבע כשנלחצים */
+}
+
+
+.map {
+    height: 100%;
+    width: 100%;
+  }
+  
+
+
+
+
+  /* כפתור פלוס */
+.plus-button3 {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #00e6e6, #005f73);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1500; /* מעל המפה */
+    box-shadow: 0 4px 15px rgba(0, 230, 230, 0.6);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plus-button3:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 230, 230, 0.8);
+}
+
+.plus-button3:active {
+    transform: scale(0.9);
+}
+
+
+/* כפתור במיקום המפה */
+.Transmitterbox {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    width: 500px;
+    height: 75vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+    border: 1px solid rgba(0, 230, 230, 0.5);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 230, 230, 0.4);
+    z-index: 1000;
+    overflow-y: auto;
+    overflow-x: hidden;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+
+
+.plus-button1 {
+    position: absolute;
+    top: 140px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #ff0606, #f30808);
+    color: rgb(252, 252, 252);
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1500; /* מעל המפה */
+    box-shadow: 0 4px 15px rgba(255, 2, 36, 0.6);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plus-button1:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(248, 246, 246, 0.8);
+}
+
+.plus-button1:active {
+    transform: scale(0.9);
+}
+
+
+
+
+.plus-button2 {
+    position: absolute;
+    top: 210px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #0941db, #0a0db3);
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1500; /* מעל המפה */
+    box-shadow: 0 4px 15px rgba(37, 1, 241, 0.6);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plus-button2:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(100, 247, 2, 0.8);
+}
+
+.plus-button2:active {
+    transform: scale(0.9);
+}
+
+
+.plus-button4 {
+    position: absolute;
+    top: 280px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #ec770a, #f39e0b);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1500; /* מעל המפה */
+    box-shadow: 0 4px 15px rgba(221, 95, 10, 0.6);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plus-button4:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(248, 185, 11, 0.8);
+}
+
+.plus-button4:active {
+    transform: scale(0.9);
+}
+
+
+
+
+/* סרגל הצגת אזורים */
+/* סרגל */
+.coverage-bar {
+    position: absolute;
+    top: 20px; /* מיקום קרוב לחלק העליון של המפה */
+    left: 50%;
+    transform: translateX(-50%); /* מיקום במרכז המסך */
+    width: 80%;
+    max-width: 1200px;
+    background: rgba(0, 0, 0, 0.7); /* צבע רקע כהה */
+    border-radius: 25px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between; /* ממקם את האלמנטים בקצוות */
+    align-items: center;
+    z-index: 1001; /* מיקום על המפה */
+    box-shadow: 0 0 15px rgba(0, 230, 230, 0.5);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-wrap: wrap; /* לאפשר שיבוץ אוטומטי של תכנים */
+  }
+  
+  /* רשימת אזורים */
+  .coverage-list {
+    flex: 1;
+    overflow-x: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+  }
+  
+  /* כל פריט בסרגל */
+  .coverage-item {
+    margin: 0;
+    padding: 5px 10px;
+    background: rgba(20, 20, 20, 0.8);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* הדגשת פריט בעת ריחוף */
+  .coverage-item:hover {
+    background: rgba(0, 230, 230, 0.4);
+    transform: scale(1.05);
+  }
+  
+  /* כותרת אזור */
+  .coverage-item strong {
+    font-size: 1em;
+    color: #00e6e6;
+  }
+  
+  /* פרטי האזור */
+  .coverage-details {
+    background: rgba(0, 0, 0, 0.8);
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    color: #e0e0e0;
+  }
+  
+  /* שדה חיפוש */
+  .search-container {
+    margin-left: -50px;
+    flex-shrink: 0; /* מונע מה-search-container להתכווץ */
+  }
+  
+  .search-input {
+    width: 200px;
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    background-color: rgba(0, 230, 230, 0.5);
+  }
+  
+  /* גלילה אופקית */
+  .coverage-bar::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .coverage-bar::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 230, 230, 0.6);
+    border-radius: 10px;
+  }
+  
+  .coverage-bar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 230, 230, 0.8);
+  }
+
+  
+
+  .plus-button5 {
+    position: absolute;
+    top: 349px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #db4666, #dd0a14);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1500; /* מעל המפה */
+    box-shadow: 0 4px 15px rgba(235, 8, 57, 0.6);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plus-button5:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(204, 8, 34, 0.8);
+}
+
+.plus-button5:active {
+    transform: scale(0.9);
+}
+
+
+
+
+
+.plus-button6 {
+  position: absolute;
+  top: 410px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #080ce0, #1842cc);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1500; /* מעל המפה */
+  box-shadow: 0 4px 15px rgba(33, 11, 226, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plus-button6:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(97, 9, 211, 0.8);
+}
+
+.plus-button6:active {
+  transform: scale(0.9);
+}
+
+
+
+.plus-button7 {
+  position: absolute;
+  top: 480px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #52cc7b, #20d60f);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1500; /* מעל המפה */
+  box-shadow: 0 4px 15px rgba(18, 206, 81, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plus-button7:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(18, 212, 122, 0.8);
+}
+
+.plus-button7:active {
+  transform: scale(0.9);
+}
+
+
+
+.plus-button8 {
+  position: absolute;
+  top: 550px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #fd09c8, #e40ed9);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1500; /* מעל המפה */
+  box-shadow: 0 4px 15px rgba(228, 11, 228, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plus-button8:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(202, 13, 219, 0.8);
+}
+
+.plus-button8:active {
+  transform: scale(0.9);
+}
+
+
+
+
+
+
+
+
+.coverage-info-box {
+  position: absolute;
+  top: 70px;
+  left: 2000px;
+  padding: 20px;
+  background-color: rgba(236, 214, 214, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 250px;
+  z-index: 9999;
+  font-family: Arial, sans-serif;
+}
+
+.coverage-header {
+  font-size: 18px;
+  color: #007BFF;
+  margin-bottom: 15px;
+}
+
+.transmitter-info {
+  font-size: 16px;
+  color: #1e2325;
+}
+
+.no-transmitters {
+  font-size: 16px;
+  color: #e74c3c;
+  font-style: italic;
+}
+
+.coverage-info-box p {
+  margin: 0;
+  padding: 5px 0;
 }

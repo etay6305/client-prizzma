@@ -1,0 +1,138 @@
+.unassigned-transmitters {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1a1a1a; /* רקע שחור */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    max-width: 800px;
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid #333; /* מסגרת אפורה כהה */
+}
+
+/* כפתור החלפה */
+.toggle-button {
+    background: linear-gradient(135deg, #00bfff, #007bff);
+    color: white;
+    padding: 10px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.toggle-button:hover {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.7);
+}
+
+/* כפתור סגירה */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 14px;
+    box-shadow: 0 5px 10px rgba(255, 77, 77, 0.5);
+}
+
+.close-button:hover {
+    background-color: #cc0000;
+}
+
+/* טבלה */
+.transmitter-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.transmitter-table th,
+.transmitter-table td {
+    padding: 12px;
+    border: 1px solid #444; /* קווים כהים */
+    text-align: center;
+    font-size: 14px;
+    color: #ddd; /* טקסט בהיר */
+    transition: background 0.2s ease;
+}
+
+.transmitter-table th {
+    background-color: #007bff; /* רקע כחול לכותרות */
+    color: white;
+    font-weight: bold;
+}
+
+.transmitter-table tr:hover {
+    background-color: #333; /* צבע כהה בריחוף */
+}
+
+.transmitter-table td {
+    background-color: #222; /* צבע רקע כהה */
+}
+
+/* עיצוב מותאם לנייד */
+@media (max-width: 768px) {
+    .unassigned-transmitters {
+        width: 90%;
+        max-height: 70vh;
+    }
+
+    .toggle-button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .transmitter-table th,
+    .transmitter-table td {
+        padding: 8px;
+        font-size: 12px;
+    }
+}
+
+
+
+.noise-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .latitude {
+    padding: 10px;
+    margin: 10px 0;
+    width: 50%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #1a1a1a;
+    color: #fff;
+  }
+  
+  .latitude:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  }
+  
+
+
+
+
+

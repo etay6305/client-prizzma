@@ -1,0 +1,55 @@
+.conflict-container {
+    position: absolute; /* מיקום מעל המפה */
+    top: 15%; /* מיקום אנכי - 10% מהחלק העליון */
+    left: 50%; /* מיקום אופקי - מרכז */
+    transform: translate(-50%, -10%); /* יישור למרכז */
+    background-color: rgba(0, 0, 0, 0.9); /* רקע שחור שקוף למחצה */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* הצללה כהה יותר */
+    max-width: 800px;
+    width: 90%; /* תמיכה במסכים קטנים */
+    z-index: 1000; /* שכבת עליונה מעל המפה */
+    color: white; /* טקסט לבן */
+    font-family: Arial, sans-serif; /* גופן קריא */
+}
+
+.conflict-section {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #444; /* קו תחתון אפור כהה */
+    padding-bottom: 10px;
+}
+
+.conflict-section:last-child {
+    border-bottom: none;
+}
+
+.conflict-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white; /* טקסט לבן */
+}
+
+.conflict-table th,
+.conflict-table td {
+    border: 1px solid #444; /* גבול אפור כהה */
+    padding: 8px;
+    text-align: center;
+}
+
+.conflict-table th {
+    background-color: #333; /* רקע אפור כהה לכותרות */
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+h1, h2 {
+    color: #00e6e6; /* כותרות בגוון טורקיז */
+    text-align: center;
+    margin-bottom: 15px;
+}
