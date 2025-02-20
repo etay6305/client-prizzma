@@ -1,0 +1,101 @@
+/****************************************
+  ממקם את הנגן במרכז המסך, 
+  עם אנימציה קצרה "החלקה" מימין למרכז
+*****************************************/
+
+.futuristic-player-container {
+    position: absolute;       
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;  
+    animation: slideFromRight 0.8s ease forwards;
+  }
+  
+  /* אנימציה הגורמת לרכיב להופיע מימין למרכז */
+  @keyframes slideFromRight {
+    0% {
+      transform: translate(50%, -50%); /* אם רוצים להתחיל עוד יותר רחוק, אפשר לשנות ל translate(150%, -50%) */
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+      transform: translate(-10%, -50%); 
+    }
+    80% {
+      transform: translate(5%, -50%); 
+    }
+    100% {
+      transform: translate(-50%, -50%); 
+    }
+  }
+  
+  /****************************************
+    עיצוב עתידני לנגן
+  *****************************************/
+  
+  .futuristic-player {
+    font-family: 'Orbitron', sans-serif; /* פונט טכנולוגי (טען מ-Google Fonts או החלף) */
+    background: #111;                    /* רקע כהה */
+    color: #0ff;                         /* טורקיז ניאון */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); /* זוהר ניאוני */
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    min-width: 500px;  /* גודל מינימלי */
+    text-align: center;
+  }
+  
+  .track-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+  }
+  
+  /****************************************
+    כפתורי ניהול 
+  *****************************************/
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  
+  /* כפתור כללי */
+  .control-btn {
+    background: none;
+    color: #0ff;
+    font-size: 16px;
+    padding: 8px;
+    border: 2px solid #0ff;
+    border-radius: 50%;
+    width: 60px;
+    height: 55px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .control-btn:hover {
+    background: #0ff;
+    color: #111;
+  }
+  
+  /* כפתור play בצבע ירוק ניאוני */
+  .play-btn {
+    border-color: #0f0;
+    color: #0f0;
+  }
+  .play-btn:hover {
+    background: #0f0;
+    color: #111;
+  }
+  
+  /* כפתור stop באדום ניאוני */
+  .stop-btn {
+    border-color: #f00;
+    color: #f00;
+  }
+  .stop-btn:hover {
+    background: #f00;
+    color: #111;
+  }
+  

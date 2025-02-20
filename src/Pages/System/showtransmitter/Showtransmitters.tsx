@@ -29,7 +29,7 @@ function ShowTransmitters() {
     const [radii, setRadii] = useState<{ [key: string]: string }>({});
     const [arrayisempty, setArrayisempty] = useState(false); // בדיקת ריקון
     const [confirmupdate, setConfirmupdate] = useState(false); //הצגת כפתור שמירה 
-    const [new_name, setNewname] = useState<string>('');
+    const [antenaKind, setantenaKind] = useState<{ [key: string]: string }>({});
     const [nameOfCoverage, setNameOfCoverage] = useState<{ [key: string]: string }>({});
     // שליפת נתונים מהשרת
     useEffect(() => {
@@ -118,21 +118,21 @@ function ShowTransmitters() {
     const handletree = async (old_name: string) => {
         try {
             const response = await axios.patch(`http://localhost:5000/update-transmitter`, {
-                old_name,
-                new_name,
+                name: old_name,
+                antennaType: antenaKind[old_name],
             });
     
             if (response.status === 200) {
                 // עדכון הטבלה לאחר שמירה
                 setTransmitters((prevTransmitters) =>
                     prevTransmitters.map((transmitter) =>
-                        transmitter.name === old_name ? { ...transmitter, name: new_name } : transmitter
+                        transmitter.name === old_name ? { ...transmitter, antennaType: antenaKind[old_name] } : transmitter
                     )
                 );
     
                 Swal.fire({
                     title: "עודכן בהצלחה!",
-                    text: `השם שונה ל-${new_name}`,
+                    text: `השם שונה ל-${antenaKind}`,
                     icon: "success",
                 });
     
@@ -190,19 +190,22 @@ function ShowTransmitters() {
                     <tbody>
                         {transmitters.map((transmitter, index) => (
                             <tr key={index}>
-                                <td>{transmitter.name}
-                                    {confirmupdate &&<input
-                                        type="text"
-                                        value={new_name}
-                                        onChange={(e) => setNewname(e.target.value)}
-                                        placeholder="new name"
-                                        className="name"
-                                />}
-                                </td>
+                                <td>{transmitter.name}</td>
                                 <td>{transmitter.frequencyRange} Hz</td>
                                 <td>{transmitter.bandwidth} Hz</td>
                                 <td>{transmitter.power} W</td>
-                                <td>{transmitter.antennaType}</td>
+                                <td>{transmitter.antennaType || "N/A"}
+                                {confirmupdate &&<input 
+                                        type="text"
+                                        value={antenaKind[transmitter.name] || ''}
+                                        onChange={(e) => setantenaKind((prev) => ({
+                                            ...prev,
+                                            [transmitter.name]: e.target.value, // עדכון ערך עבור משדר ספציפי
+                                        }))}
+                                        placeholder="new antenna type"
+                                        className="name"
+                                />}
+                                </td>
                                 <td>{transmitter.coverageRadius} m</td>
                                 <td>{transmitter.f} MHz</td>
                                 <td>{transmitter.antennaGain} dB</td>
@@ -213,7 +216,7 @@ function ShowTransmitters() {
                                 <td>{radii[transmitter.name] || "N/A"} m</td>
                                 <td>
                                 
-                                {confirmupdate ? (
+                                {confirmupdate ? ( 
                                 // מצב עדכון - כפתור שמירה
                                 <button
                                     onClick={() => {

@@ -107,8 +107,8 @@ const OptimizationPage: React.FC = () => {
       });
     }
   };
-   
-   return (
+
+  return (
     <Draggable>
     <div className="unassigned-transmitters">
       <h1>Transmitters</h1>

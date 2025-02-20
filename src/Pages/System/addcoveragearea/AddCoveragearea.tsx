@@ -1,14 +1,19 @@
-import "./Transmitterbox.css";
+import "../transmitterBox/Transmitterbox.css";
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import Swal from 'sweetalert2';
 import Draggable from 'react-draggable'; // ספריית גרירה
 
-function AddCoveragearea() {
-  const [name, setName] = useState<string>('');
+interface prop {
+    name: string;
+    latitude: number;
+    longitude: number;
+}
+function AddCoveragearea(props: prop) {
+  const [name, setName] = useState<string>(props.name);
   const [description, setDescription] = useState<string>('');
-  const [latitude, setLatitude] = useState<number>(0.0);
-  const [longitude, setLongitude] = useState<number>(0.0);
+  const [latitude, setLatitude] = useState<number>(props.latitude);
+  const [longitude, setLongitude] = useState<number>(props.longitude);
   const [radius, setRadius] = useState<number>(0.0);
   const apiCall = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault(); // מניעת ריענון הדף

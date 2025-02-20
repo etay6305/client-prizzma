@@ -3,7 +3,7 @@ import { useState} from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import BackBtn from '../BackBtn';
+import BackBtn from '../../BackBtn';
 
 
 function ChangePassword() {

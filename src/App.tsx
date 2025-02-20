@@ -1,6 +1,6 @@
 import { useState, useEffect  } from 'react'
 import './App.css'
-import Header from './Components/Layout/Header';
+import Header from './Components/Layout/header/Header';
 import HighContrast from './HighContrast';
 import LargeText from './LargeText';
 //import Footer from './Components/Layout/Footer';

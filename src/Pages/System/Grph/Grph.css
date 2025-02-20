@@ -1,0 +1,31 @@
+.chooseAgraph {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(135deg, #1e3a8a, #36a2eb);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .chooseAgraph:hover {
+    background: linear-gradient(135deg, #0f172a, #1e40af);
+  }
+  
+  .chooseAgraph:focus {
+    outline: none;
+    border: 2px solid #fff;
+  }
+  
+  .chooseAgraph option {
+    background-color: #1e293b;
+    color: #fff;
+    font-weight: bold;
+  }
+  

@@ -8,17 +8,8 @@ import { Style, Fill, Stroke, Icon, Text } from 'ol/style';
 import { useNavigate } from 'react-router-dom';
 import DisconnectedBtn from '../../Components/Layout/Disconnected';
 import './Map.css';
-import Transmitterbox from './Transmitterbox';
-import ShowTransmitters from './Showtransmitters';
-import Chat1 from './Chat1';
-import AddCoveragearea from './AddCoveragearea';
-import InformationOfcoverage from './InformationOfcoverages';
-import AddTransmitterLocation from './AddTransmitterLocation';
-import OverlapOfTransmitter from './OverlapOfTransmitter';
-import OptimizationPage from './OptimizationPage';
-import GridLayout from 'react-grid-layout';
-import Draggable from 'react-draggable';
-
+import SideButton from './sideButtons/sideButton';
+import Grph from './Grph/Grph';
 const markerStyle = new Style({
   image: new Icon({
     src: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
@@ -56,19 +47,11 @@ function MapWithRadius() {
   const [markers, setMarkers] = useState<any[]>([]);
   const [name, setName] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [showTransmitterBox, setShowTransmitterBox] = useState(false);
-  const [showAllTransmitter, setShowAllTransmitter] = useState(false);
-  const [openchat, setopenchat] = useState(false);
-  const [openAddCoveragearea, setOpenAddCoveragearea] = useState(false);
   const [CoverageAreas, setCoverageAreas] = useState<Coverage[]>([]); // שמירה על שטחי כיסוי
   const [activeCoverage, setActiveCoverage] = useState<number | null>(null); // מציין איזה אזור פתוח
   const [searchQuery, setSearchQuery] = useState<string>(''); // אחסון טקסט החיפוש
-  const [openInformationOfcities, setInformationOfCities] = useState(false);
-  const [openTransmitterLocation, setOpentransmitterlocation] = useState(false);
   const [allTransmitteronmap, setallTransmitteronmap] = useState<Transmitter[]>([]);
-  const [openOverlap, setopenOverlap] = useState(false);
   const [activeTransmitterName, setActiveTransmitterName] = useState<string | null>(null);
-  const [openOptimizationPage, setopenOptimizationPage] = useState(false);
   const navigate = useNavigate();
 
   // שמירה על שם המשתמש אם הוא מחובר
@@ -279,62 +262,8 @@ function MapWithRadius() {
       </div>
     </div>
 
-      <button
-        className="plus-button3"
-        onClick={() => setShowTransmitterBox(!showTransmitterBox)}
-      >
-        +
-      </button>
-      <button
-        className="plus-button1"
-        onClick={() => setShowAllTransmitter(!showAllTransmitter)}
-      >
-        +
-      </button>
-      <button
-        className="plus-button2"
-        onClick={() => setopenchat(!openchat)}
-      >
-        +
-      </button>
-      <button
-        className="plus-button4"
-        onClick={() => setOpenAddCoveragearea(!openAddCoveragearea)}
-      >
-        +
-      </button>
-      <button
-        className="plus-button5"
-        onClick={() => setInformationOfCities(!openInformationOfcities)}
-      >
-        +
-      </button>
-      <button
-        className="plus-button6"
-        onClick={() => setOpentransmitterlocation(!openTransmitterLocation)}
-      >
-        +
-      </button>
-      <button
-        className="plus-button7"
-        onClick={() => setopenOverlap(!openOverlap)}
-      >
-        +
-      </button>
-      <button
-        className="plus-button8"
-        onClick={() => setopenOptimizationPage(!openOptimizationPage)}
-      >
-        +
-      </button>
-      {showTransmitterBox && <Transmitterbox />}
-      {showAllTransmitter && <ShowTransmitters />}
-      {openchat && <Chat1 />}
-      {openAddCoveragearea && <AddCoveragearea />}
-      {openInformationOfcities && <InformationOfcoverage/>}
-      {openTransmitterLocation && <AddTransmitterLocation/>}
-      {openOverlap && <OverlapOfTransmitter/>}
-      {openOptimizationPage && <OptimizationPage/>}
+      <Grph/>
+      <SideButton/>
       <RMap
         className="map"
         initial={{ center: fromLonLat([longitude, latitude]), zoom: 13 }}

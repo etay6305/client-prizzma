@@ -66,7 +66,7 @@ function Transmitterbox() {
                 className="name"
                 required
             />
-
+            
             <h1>טווח תדרים</h1>
             <input
                 type="text"

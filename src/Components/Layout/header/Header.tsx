@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Login from "../../Pages/Login";
-import HomePage from "../../Pages/HomePage";
+import Login from "../../../Pages/login/Login";
+import HomePage from "../../../Pages/homepage/HomePage";
 import "./Header.css";
-import Map from "../../Pages/System/Map";
-import SighnUp from "../../Pages/SighnUp";
-import ChangePassword from "../../Pages/ChangePassword";
-import { UserProvider } from "../UserContext";
+import Map from "../../../Pages/System/Map";
+import SighnUp from "../../../Pages/sighnup/SighnUp";
+import ChangePassword from "../../../Pages/changepassword/ChangePassword";
+import { UserProvider } from "../../UserContext";
 import axios from "axios";
-import Chat from "../../Additives/Chat";
-import ForgetApassword from "../../Pages/ForgetApassword";
-import CheckPassword from "../../Pages/CheckPassword";
-import CreateNewPassword from "../../Pages/CreateNewPassword";
+import Chat from "../../../Additives/Chat";
+import ForgetApassword from "../../../Pages/ForgetApassword";
+import CheckPassword from "../../../Pages/CheckPassword";
+import CreateNewPassword from "../../../Pages/CreateNewPassword";
 // רכיב Header
 function Header() {
   const [name, setName] = useState('');

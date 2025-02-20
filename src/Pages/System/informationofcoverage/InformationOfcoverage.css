@@ -55,3 +55,19 @@
     color: #000000;
   }
   
+
+
+
+  /* מחלקת קונטיינר של AddCoveragearea */
+.add-coverage-area-container {
+  position: absolute;
+  top: -10%;
+  left: -100px; /* התחל ממקום מחוץ למסך מימין */
+  transform: translateY(-50%); /* שימור מרכז אנכי */
+  transition: right 0.5s ease-in-out; /* אנימציה של תזוזה מצד ימין לשמאל */
+  z-index: 1000; /* לוודא שהרכיב יהיה מעל רכיבים אחרים */
+}
+
+.add-coverage-area-container.show {
+  left: 0; /* ברגע שמוצג, הכנס את הרכיב לתוך המסך מצד ימין */
+}

@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import './InformationOfcoverage.css';
 import Draggable from 'react-draggable'; // ספריית גרירה
+import AddCoveragearea from '../addcoveragearea/AddCoveragearea';
 
+interface citya {
+  name: string;
+  latitude: number;
+  longitude: number;
+}
 const cities = [
     { name: 'תל אביב', latitude: 32.0853, longitude: 34.7818, coverageRadius: 15 },
   { name: 'ירושלים', latitude: 31.7683, longitude: 35.2137, coverageRadius: 20 },
@@ -21,11 +27,20 @@ const cities = [
 
 const InformationOfcoverage = () => {
   const [searchQuery, setSearchQuery] = useState(''); // מצב לשאילתת החיפוש
+  const [selectedCity, setSelectedCity] = useState<citya | null>(null); // מצב לעיר שנבחרה
+  const [openAddCoveragearea, setOpenAddCoveragearea] = useState(false);
 
   const filteredCoverageAreas = cities.filter((city) =>
     city.name.toLowerCase().includes(searchQuery.toLowerCase())
   ); // סינון אזורים לפי החיפוש
 
+  const handleCitySelect = (city: citya) => {
+    setSelectedCity(city); // עדכון המצב כאשר נבחרה עיר
+  };
+  
+  const toggleAddCoveragearea = () => {
+    setOpenAddCoveragearea(!openAddCoveragearea); // משנה את מצב פתיחת רכיב הוספת אזור
+  };
   return (
     <Draggable>
     <div className="info-container">
@@ -39,13 +54,25 @@ const InformationOfcoverage = () => {
       />
       <ul className="info-list">
         {filteredCoverageAreas.map((city, index) => (
-          <li key={index} className="info-item">
+          <li key={index} className="info-item" onClick={() => handleCitySelect(city)} onDoubleClick={toggleAddCoveragearea}>
             <strong>{city.name}</strong>: קו רוחב {city.latitude}, קו אורך {city.longitude}, רדיוס כיסוי (במטרים) {city.coverageRadius.toLocaleString()} מטר
           </li>
         ))}
       </ul>
-    </div>
-    </Draggable>
+
+
+{/* הצגת רכיב הוספת אזור כיסוי */}
+{openAddCoveragearea && selectedCity && (
+   <div className={`add-coverage-area-container ${openAddCoveragearea ? 'show' : ''}`}>
+   <AddCoveragearea 
+     name={selectedCity.name} 
+     latitude={selectedCity.latitude} 
+     longitude={selectedCity.longitude} 
+   />
+ </div>
+  )}
+  </div>
+   </Draggable>
   );
 };
 

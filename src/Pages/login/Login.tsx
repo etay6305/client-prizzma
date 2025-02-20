@@ -3,8 +3,9 @@ import  { useState, useContext } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { UserContext } from '../Components/UserContext';
-import BackBtn from "../BackBtn";
+//import { UserContext } from '../Components/UserContext';
+import BackBtn from "../../BackBtn";
+import Inputs from "../Inputs/Inputs/Inputs";
 
 function Login() {
   // הגדרת state לאחסון הנתונים מה-API
@@ -13,7 +14,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   
-  const { setUser } = useContext(UserContext); // שימוש ב-Context
+  //const { setUser } = useContext(UserContext); // שימוש ב-Context
 
 
   
@@ -40,7 +41,7 @@ function Login() {
           icon: 'success',
         });
   
-        setUser(name);
+        //setUser(name);
         localStorage.setItem('connected', JSON.stringify(name));
   
         // שליחת בקשה ליצירת קוקי
@@ -87,7 +88,7 @@ function Login() {
     <div className="Login">
        <div className="login-container">
        <h1>Login to system</h1>
-        <input
+        {/* <input
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)} // עדכון הסיסמה ב-state
@@ -104,7 +105,9 @@ function Login() {
         placeholder="Enter password"
          className="login-input"
          required
-        />
+        /> */}
+        <Inputs type="text" value={name} onChange={(e : any) => setName(e.target.value)} className="login_input" placeHolder="Enter your name" onKeyDown={handleKeyDown}/>
+        <Inputs type="password" value={password} onChange={(e : any) => setPassword(e.target.value)} className="login_input" placeHolder="Enter your password" onKeyDown={handleKeyDown}/>
         <br/>
         <button  onClick={apiCall} className="login-button">Sign In</button>
         <button onClick={apiCallSecond} className="login-button">Sign Up</button>
