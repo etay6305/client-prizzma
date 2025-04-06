@@ -1,74 +1,179 @@
-/* Login.css */
-
+/* 🌌 רקע כהה עם אפקט זוהר */
 body {
-  background: #1e1e1e;
-  color: #fff;
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
+  background: radial-gradient(circle at center, #0f172a 10%, #0b0f19 80%);
+  color: white;
+  font-family: "Inter", sans-serif;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh; /* גובה מלא */
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
 }
 
-.Login {
+/* 🟢 מסגרת עגולה עם אפקטים */
+.Login1 {
   display: flex;
-  justify-content: center; /* מרכז את התוכן אופקית */
-  align-items: center; /* מרכז את התוכן אנכית */
-  height: 100%; /* מלא גובה ההורה */
-  width: 100%; /* מלא רוחב ההורה */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
 }
 
-.login-container {
-  background: #282c34;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  width: 90%; /* רוחב של 90% מהמסך */
-  max-width: 500px; /* הגבלה על הרוחב המרבי */
+/* 🟡 רקע עם קווים ניאוניים זורמים */
+.Login1::before {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(50, 130, 255, 0.2) 0%, rgba(0, 0, 0, 0) 60%);
+  z-index: 0;
+  animation: floatingGlow 6s infinite ease-in-out;
+}
+
+/* 🎮 תיבת התחברות עגולה */
+.login1 {
+  background: rgba(20, 20, 30, 0.95);
+  border-radius: 30px; /* עיצוב עגול */
+  padding: 50px;
+  border: 3px solid rgba(50, 130, 255, 0.7);
+  box-shadow: 0px 0px 25px rgba(50, 130, 255, 0.5);
   text-align: center;
+  width: 420px;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
-h1 {
-  color: #61dafb;
-  margin-bottom: 20px;
-  font-size: 2em; /* גודל טקסט מותאם */
+/* ⚡ כותרת זוהרת */
+.login1 h1 {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  color: #3282ff;
+  text-shadow: 0 0 20px rgba(50, 130, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 
-.login-input {
-  width: calc(100% - 20px);
-  padding: 12px;
-  margin-bottom: 15px;
+/* 🛡️ שדות הקלט עגולים עם אפקט הייטקי */
+.login_input {
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
   border: none;
-  border-radius: 5px;
-  background: #3a3a3a;
-  color: #fff;
-  font-size: 1em; /* גודל טקסט מותאם */
+  border-radius: 25px; /* עיצוב עגול */
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  border: 2px solid rgba(50, 130, 255, 0.6);
+  box-shadow: inset 0 0 8px rgba(50, 130, 255, 0.4);
 }
 
-.login-input::placeholder {
-  color: #aaa;
+.login_input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 15px rgba(50, 130, 255, 0.8);
 }
 
+/* 🟦 כפתורים מעוצבים */
 .login-button {
-  width: calc(50% - 10px);
-  padding: 12px;
+  width: 100%;
+  padding: 14px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 12px;
   border: none;
-  border-radius: 5px;
-  background: #61dafb;
-  color: #fff;
+  border-radius: 25px; /* כפתור עגול */
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  margin: 5px;
-  font-size: 1em; /* גודל טקסט מותאם */
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 12px rgba(50, 130, 255, 0.4);
+  background: linear-gradient(120deg, #3282ff, #1b6aff);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🎭 אנימציה של הכפתורים */
+.login-button::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(50, 130, 255, 0.3) 0%, rgba(0, 0, 0, 0) 50%);
+  transition: all 0.3s ease-in-out;
 }
 
 .login-button:hover {
-  background: #4fa3d8;
   transform: scale(1.05);
+  filter: brightness(1.3);
 }
 
-.login-button:active {
-  background: #3a8fb7;
+/* 🔄 כפתור חזור */
+.BackBtn {
+  margin-top: 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #3282ff;
+  transition: color 0.3s ease-in-out;
+}
+
+.BackBtn:hover {
+  color: #1b6aff;
+}
+
+/* 🌐 אפקטים מיוחדים */
+@keyframes floatingGlow {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ✅ התאמה למסכים קטנים */
+@media (max-width: 480px) {
+  .login1 {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .login1 h1 {
+    font-size: 1.6rem;
+  }
+
+  .login-button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .login_input {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
 }

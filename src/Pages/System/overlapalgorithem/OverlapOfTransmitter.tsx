@@ -15,6 +15,7 @@ interface ConflictsByArea {
   [areaId: string]: {
     conflicts: Conflict[];
     coveragePercentage: number;
+    // name: string;
   };
 }
 
@@ -41,6 +42,7 @@ const OverlapOfTransmitter: React.FC = () => {
             updatedConflicts[areaId] = {
               conflicts: overlapsData[areaId],
               coveragePercentage: 0, // אין כיסוי לאזור שאינו משויך
+              // name: overlapsData[areaId].name,
             };
             continue;
           }
@@ -54,12 +56,14 @@ const OverlapOfTransmitter: React.FC = () => {
             updatedConflicts[areaId] = {
               conflicts: overlapsData[areaId],
               coveragePercentage: parseFloat(coveragePercentage),
+              // name: overlapsData[areaId].name,
             };
           } catch (coverageError) {
             console.error(`Error fetching coverage for area ${areaId}:`, coverageError);
             updatedConflicts[areaId] = {
               conflicts: overlapsData[areaId],
               coveragePercentage: 0, // ברירת מחדל במקרה של שגיאה
+              // name: overlapsData[areaId].name,
             };
           }
         }
@@ -82,6 +86,10 @@ const OverlapOfTransmitter: React.FC = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p className="error">{error}</p>;
 
+  // const findName = (areaId: string) => {
+  //   return conflicts[areaId] ? conflicts[areaId].name : `Unknown Area`;
+  // };
+  
   
   return (
     <Draggable>
@@ -109,8 +117,8 @@ const OverlapOfTransmitter: React.FC = () => {
                     <tr key={index}>
                       <td>{conflict.transmitter1}</td>
                       <td>{conflict.transmitter2}</td>
-                      <td>{conflict.overlapCoverage ? 'Yes' : 'No'}</td>
-                      <td>{conflict.overlapFrequency ? 'Yes' : 'No'}</td>
+                      <td>{conflict.overlapCoverage ? '✅' : '❌'}</td>
+                      <td>{conflict.overlapFrequency ? '✅' : '❌'}</td>
                     </tr>
                   ))}
                 </tbody>

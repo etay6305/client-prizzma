@@ -3,6 +3,7 @@ import axios from 'axios';
 import './AddTransmitterLocation.css'; // קובץ CSS מותאם אישית
 import Swal from 'sweetalert2';
 import Draggable from 'react-draggable'; // ספריית גרירה
+import Inputs from "../../Inputs/Inputs/Inputs";
 // ממשק למשדרים
 interface Transmitter {
   name: string;
@@ -42,6 +43,7 @@ const AddTransmitterLocation : React.FC = () => {
             name: name,
             latitude: parseFloat(latitude[name]),
             longitude: parseFloat(longitude[name]),
+            awaiting: false,
         })
         if (response.status === 200) {
             console.log("add secssesful");
@@ -99,32 +101,18 @@ const AddTransmitterLocation : React.FC = () => {
                 {filterUnassigned === false && (
                   <>
                     <td>
-                      <input
-                        type="number"
-                        className="latitude"
-                        placeholder="Latitude"
-                        value={latitude[transmitter.name] || ''}
-                        onChange={(e) =>
-                          setLatitude((prev) => ({
-                            ...prev,
+                      <Inputs type='number' className='latitude' placeHolder='Latitude' value={latitude[transmitter.name] || ''} onChange={(e) => 
+                      setLatitude((prev) => ({
+                             ...prev,
                             [transmitter.name]: e.target.value,
-                          }))
-                        }
-                      />
+                      }))} required/>
                     </td>
                     <td>
-                      <input
-                        type="number"
-                        className="latitude"
-                        placeholder="Longitude"
-                        value={longitude[transmitter.name] || ''}
-                        onChange={(e) =>
+                      <Inputs type='number' className='latitude' placeHolder='Longitude' value={longitude[transmitter.name] || ''} onChange={(e) =>
                           setLongitude((prev) => ({
                             ...prev,
                             [transmitter.name]: e.target.value,
-                          }))
-                        }
-                      />
+                          }))} required/>
                     </td>
                     <td><button onClick={() => (addLATandLONG(transmitter.name))}>אוסף מיקום</button></td>
                   </>

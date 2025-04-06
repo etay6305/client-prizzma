@@ -1,17 +1,8 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Login from "../../../Pages/login/Login";
-import HomePage from "../../../Pages/homepage/HomePage";
+import { Link } from 'react-router-dom';
 import "./Header.css";
-import Map from "../../../Pages/System/Map";
-import SighnUp from "../../../Pages/sighnup/SighnUp";
-import ChangePassword from "../../../Pages/changepassword/ChangePassword";
 import { UserProvider } from "../../UserContext";
 import axios from "axios";
-import Chat from "../../../Additives/Chat";
-import ForgetApassword from "../../../Pages/ForgetApassword";
-import CheckPassword from "../../../Pages/CheckPassword";
-import CreateNewPassword from "../../../Pages/CreateNewPassword";
 // רכיב Header
 function Header() {
   const [name, setName] = useState('');
@@ -29,7 +20,7 @@ function Header() {
   }, []); // תלות ריקה כדי להריץ רק בפעם הראשונה
 
   return (
-    <div className="Header">
+    <div className="Header1">
       <span className="logo">TUNER-X</span>
       <nav>
         <span></span>
@@ -54,30 +45,5 @@ function Header() {
     </div>
   );
 }
-
-// רכיב App
-function App() {
-  return (
-    <UserProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Header />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/homepage" element={<HomePage />} />
-          <Route path="/system" element={<Map />} />
-          <Route path="/sighnup" element={<SighnUp />} />
-          <Route path="/change-password" element={<ChangePassword />} />
-          <Route path="/go-to-chat" element={<Chat />} />
-          <Route path="/forget-password" element={<ForgetApassword />} />
-          <Route path="/check" element={<CheckPassword />} />
-          <Route path="/createnewpassword" element={<CreateNewPassword />} />
-
-
-        </Routes>
-      </BrowserRouter>
-    </UserProvider>
-  );
-}
-
-export default App;
+export default Header;
 

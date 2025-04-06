@@ -4,11 +4,12 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import BackBtn from '../../BackBtn';
-
+import Inputs from "../Inputs/Inputs/Inputs";
 function SighnUp() {
-  const [name, setName] = useState<string>();
+  const [name, setName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [email, setEmail] = useState<string>('');
+  const [confirmpassword, setConfirmPassword] = useState<string>('');
   const [ded, setDed] = useState<string>('');
   const navigate = useNavigate();
   
@@ -22,6 +23,9 @@ function SighnUp() {
   
     if (e) e.preventDefault();  // נוודא שאם הפונקציה נקראת מטופס, תבוצע מניעה של ברירת המחדל
 
+    if(password != confirmpassword){
+      return (<><p>error</p></>);
+    }
     try {
       const response = await axios.post('http://localhost:5000/sighn-password', {
         name, // שליחת שם המשתמש לשרת
@@ -54,36 +58,19 @@ function SighnUp() {
       <form onSubmit= {apiCall}>
         <div>
           <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            // onKeyDown={handleKeyDown}
-            required
-          />
         </div>
+        <Inputs placeHolder='name' type='text' className='name' value={name} onChange={(e) => setName(e.target.value)} required/>
         <div>
           <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            // onKeyDown={handleKeyDown}
-            required
-          />
+          <Inputs placeHolder='password' type='password' className='password' value={password} onChange={(e) => setPassword(e.target.value)} required/>
+        </div>
+        <div>
+          <label htmlFor="password">Confirm Password:</label>
+          <Inputs placeHolder='confirm your password' type='password' className='confirm' value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)} required/>
         </div>
         <div>
           <label htmlFor="email">email:</label>
-          <input
-            type="text"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            // onKeyDown={handleKeyDown}
-            required
-          />
+          <Inputs placeHolder='email' type='text' className='email' value={email} onChange={(e) => setEmail(e.target.value)} required/>
         </div>
         <button type="submit">Sign Up</button>
         <BackBtn/>

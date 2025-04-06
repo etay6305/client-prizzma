@@ -9,6 +9,7 @@ import AddTransmitterLocation from '../addtransmitterlocation/AddTransmitterLoca
 import OverlapOfTransmitter from '../overlapalgorithem/OverlapOfTransmitter';
 import OptimizationPage from '../optimizationpage/OptimizationPage';
 import PlayVideo from '../playvideo/playvideo';
+import TransmitterThumbnails from '../TransmitterThumbnails/TransmitterThumbnails';
 const SideButton: React.FC = () => {
     const [showTransmitterBox, setShowTransmitterBox] = useState(false);
     const [showAllTransmitter, setShowAllTransmitter] = useState(false);
@@ -19,6 +20,7 @@ const SideButton: React.FC = () => {
     const [openOverlap, setopenOverlap] = useState(false);
     const [openOptimizationPage, setopenOptimizationPage] = useState(false);
     const [showplayvideo, setshowplayvideo] = useState(false);
+    const [showThumnails, setshowThumnails] = useState(false);
     
     return (
         <>
@@ -32,6 +34,7 @@ const SideButton: React.FC = () => {
         <GenericSideButton className='plus-button7' onClick={() => setopenOverlap(!openOverlap)}/>
         <GenericSideButton className='plus-button8' onClick={() => setopenOptimizationPage(!openOptimizationPage)}/>
         <GenericSideButton className='plus-button9' onClick={() => setshowplayvideo(!showplayvideo)}/>
+        {/* <GenericSideButton className='plus-button10' onClick={() => setshowThumnails(!showThumnails)}/> */}
         {showTransmitterBox && <Transmitterbox />}
         {showAllTransmitter && <ShowTransmitters />}
         {openchat && <Chat1 />}
@@ -41,6 +44,7 @@ const SideButton: React.FC = () => {
         {openOverlap && <OverlapOfTransmitter/>}
         {openOptimizationPage && <OptimizationPage/>}
         {showplayvideo && <PlayVideo/>}
+        {/* {showThumnails && <TransmitterThumbnails/>} */}
         </div>
         </>
     )

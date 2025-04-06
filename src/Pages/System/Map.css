@@ -459,6 +459,32 @@ input[type="number"]:focus {
   transform: scale(0.9);
 }
 
+.plus-button10 {
+  position: absolute;
+  top: 690px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #1900f8, #033cf7);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1500; /* מעל המפה */
+  box-shadow: 0 4px 15px rgba(236, 240, 11, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plus-button10:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(228, 243, 14, 0.8);
+}
+
+.plus-button10:active {
+  transform: scale(0.9);
+}
 
 
 
@@ -499,3 +525,42 @@ input[type="number"]:focus {
   margin: 0;
   padding: 5px 0;
 }
+
+
+
+
+/* עיצוב ללינק הראשי */
+.link-container {
+  position: absolute;
+  bottom: 1100px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #020e0e;
+  background: linear-gradient(45deg, rgba(0, 255, 255, 0.3), rgba(0, 255, 255, 0.6));
+  border: 2px solid rgba(0, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.link-button:hover {
+  background: linear-gradient(45deg, rgba(0, 255, 255, 0.6), rgba(0, 255, 255, 0.9));
+  box-shadow: 0px 0px 15px rgba(0, 255, 255, 1);
+  transform: scale(1.05);
+}
+
+.link-button:active {
+  transform: scale(0.95);
+}
+

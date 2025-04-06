@@ -17,12 +17,19 @@ interface Coverage {
   radius: number;
 }
 
+interface OptimTransmitters {
+  areaName: string;
+  allTransmitters: string;
+}
+
 const OptimizationPage: React.FC = () => {
   const [transmitters, setTransmitters] = useState<Transmitter[]>([]);
   const [loading, setLoading] = useState(true);  // התחל ב-true כדי להציג טעינה ברירת מחדל
   const [coverages, setCoverages] = useState<Coverage[]>([]);
   const [selectedAreaId, setSelectedAreaId] = useState<string>('');  // הוספת state עבור הערך שנבחר
   const [selectedTransmitters, setSelectedTransmitters] = useState<Transmitter[]>([]); // המשדרים שנבחרו
+  const [alloptimiz, setalloptimiz] = useState<OptimTransmitters[]>([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -67,6 +74,18 @@ const OptimizationPage: React.FC = () => {
     fetchData1(); // קריאה לפונקציה האסינכרונית
   }, []); // המערך הריק אומר שהפונקציה תתבצע רק פעם אחת בעת טעינת הרכיב
 
+  useEffect(() => {
+    const alloptim = async () => {
+      try{
+        const response = await axios.get('http://localhost:5000/getalloptimization');
+        console.log('fefefefefe',response.data)
+        setalloptimiz(response.data)
+      }catch(err){
+        console.log(err)
+      }
+    }
+    alloptim(); 
+  }, []);
   const checkoptimization = async (name: string) => {  // קבלת areaId מתוך ה-state
     try {
       // שליחת הבקשה לאופטימיזציה
@@ -152,8 +171,20 @@ const OptimizationPage: React.FC = () => {
               <li key={index}>{transmitter.transmitterName} - {transmitter.allocatedRadius} meters</li>
             ))}
           </ul>
-        </div>
+      </div>
       )}
+      <h2>ארכיון בדיקות</h2>
+      {alloptimiz.length > 0 ? (
+          <select>
+          <option>ארכיון</option>
+          {alloptimiz.map((t,index) => (
+            <option key={index}>{t.areaName} - {t.allTransmitters}</option>
+          ))}
+        </select>
+      ) : (
+        <h3>אין בדיקות בארכיון</h3>
+      )
+      }    
     </div>
     </Draggable>
   );

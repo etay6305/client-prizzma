@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import Swal from 'sweetalert2';
 import Draggable from 'react-draggable'; // ספריית גרירה
+import Inputs from '../../Inputs/Inputs/Inputs';
+
 
 interface prop {
     name: string;
@@ -51,54 +53,15 @@ function AddCoveragearea(props: prop) {
         <div className="Transmitterbox">
         <div className="Trans">
             <h1>שם</h1>
-            <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="name"
-                className="name"
-                required
-            />
-
+            <Inputs type='text' value={name} onChange={(e) => setName(e.target.value)} placeHolder='name' className="name" required/>
             <h1>תיאור</h1>
-            <input
-                type="text"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                placeholder="description"
-                className="frequency_range"
-                required
-            />
-
+            <Inputs type='text' value={description} onChange={(e : any) => setDescription(e.target.value)} placeHolder='description' className="frequency_range" required/>
             <h1>קו רוחב</h1>
-            <input
-                type="number"
-                value={latitude}
-                onChange={(e) => setLatitude(parseFloat(e.target.value))}
-                placeholder="bandwidth"
-                className="bandwidth"
-                required
-            />
-
+            <Inputs type='number' value={latitude} onChange={(e) => setLatitude(parseFloat(e.target.value))} placeHolder='bandwidth' className="bandwidth" required/>
             <h1>קו אורך</h1>
-            <input
-                type="number"
-                value={longitude}
-                onChange={(e) => setLongitude(parseFloat(e.target.value))}
-                placeholder="power"
-                className="power"
-                required
-            />
+            <Inputs type='number' value={longitude} onChange={(e) => setLongitude(parseFloat(e.target.value))} placeHolder='power' className="power" required/>
             <h1>רדיוס</h1>
-            <input
-                type="number"
-                value={radius}
-                onChange={(e) => setRadius(parseFloat(e.target.value))}
-                placeholder="radius"
-                className="power"
-                required
-            />
-
+            <Inputs type='number' value={radius} onChange={(e) => setRadius(parseFloat(e.target.value))} placeHolder='radius' className="power" required/>
             {/* כפתור שליחת הנתונים */}
             <button onClick={apiCall}>Add Coverage area</button>
         </div>

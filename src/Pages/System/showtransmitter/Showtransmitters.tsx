@@ -102,7 +102,7 @@ function ShowTransmitters() {
     // חישוב רדיוס
     const handleoneSecond = async (name: string) => {
         try {
-            const response = await axios.get(`http://localhost:5000/radius/${name}`);
+            const response = await axios.get(`http://localhost:5000/radius/${name}`,);
             if (response.status === 200) {
                 setRadii((prevRadii) => ({
                     ...prevRadii,

@@ -8,9 +8,6 @@ import BackBtn from "../../BackBtn";
 import Inputs from "../Inputs/Inputs/Inputs";
 
 function Login() {
-  // הגדרת state לאחסון הנתונים מה-API
-  // const [data, setData] = useState('');
-  // const [ded, setDed] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   
@@ -62,18 +59,6 @@ function Login() {
     }
   };
   
-
-  // // פונקציה לקריאת API השנייה
-  // const apiCallSecond = () => {
-  //   axios.get('http://localhost:4000/noimnan')
-  //     .then((response) => {
-  //       setDed(response.data); // שמירת הנתונים ב-state
-  //       setData('');
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching data:", error);
-  //     });
-  // };
        const apiCallSecond = () => {
           navigate('/sighnup');
        }
@@ -85,33 +70,14 @@ function Login() {
   
 
   return (
-    <div className="Login">
-       <div className="login-container">
+    <div className="Login1">
+       <div className="login1">
        <h1>Login to system</h1>
-        {/* <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)} // עדכון הסיסמה ב-state
-        onKeyDown={handleKeyDown}
-        placeholder="Enter your name"
-         className="login-input"
-         required
-        />
-        <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)} // עדכון הסיסמה ב-state
-        onKeyDown={handleKeyDown}
-        placeholder="Enter password"
-         className="login-input"
-         required
-        /> */}
-        <Inputs type="text" value={name} onChange={(e : any) => setName(e.target.value)} className="login_input" placeHolder="Enter your name" onKeyDown={handleKeyDown}/>
-        <Inputs type="password" value={password} onChange={(e : any) => setPassword(e.target.value)} className="login_input" placeHolder="Enter your password" onKeyDown={handleKeyDown}/>
+        <Inputs type="text" value={name} onChange={(e : any) => setName(e.target.value)} className="login_input" placeHolder="Enter your name" onKeyDown={handleKeyDown} required/>
+        <Inputs type="password" value={password} onChange={(e : any) => setPassword(e.target.value)} className="login_input" placeHolder="Enter your password" onKeyDown={handleKeyDown} required/>
         <br/>
         <button  onClick={apiCall} className="login-button">Sign In</button>
         <button onClick={apiCallSecond} className="login-button">Sign Up</button>
-        <button onClick={apiCallSecond2}  className="login-button">Forgeta password</button>
         <BackBtn/>
         {/* <h1>{ded}</h1>
         <h1>{data}</h1>  */}

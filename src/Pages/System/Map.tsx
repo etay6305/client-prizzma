@@ -10,6 +10,7 @@ import DisconnectedBtn from '../../Components/Layout/Disconnected';
 import './Map.css';
 import SideButton from './sideButtons/sideButton';
 import Grph from './Grph/Grph';
+import { Link } from 'react-router-dom';
 const markerStyle = new Style({
   image: new Icon({
     src: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
@@ -38,7 +39,9 @@ interface Transmitter {
   latitude: number;
   longitude: number;
   allocatedRadius: number;
+  awaiting: boolean;
 }
+
 
 function MapWithRadius() {
   const [latitude, setLatitude] = useState(32.0853); // תל אביב
@@ -50,9 +53,31 @@ function MapWithRadius() {
   const [CoverageAreas, setCoverageAreas] = useState<Coverage[]>([]); // שמירה על שטחי כיסוי
   const [activeCoverage, setActiveCoverage] = useState<number | null>(null); // מציין איזה אזור פתוח
   const [searchQuery, setSearchQuery] = useState<string>(''); // אחסון טקסט החיפוש
-  const [allTransmitteronmap, setallTransmitteronmap] = useState<Transmitter[]>([]);
+  const [a, seta] = useState<Transmitter[]>([]);
   const [activeTransmitterName, setActiveTransmitterName] = useState<string | null>(null);
+  const [lt, setlt] = useState<number | null>(null);
+  const [lng, setlng] = useState<number | null>(null);
+  const [mapCenter, setMapCenter] = useState(fromLonLat([34.7818, 32.0853]));
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedData = localStorage.getItem("sharedData");
+    if (storedData) {
+      const { lat, long } = JSON.parse(storedData);
+      console.log("🔹 Loaded from localStorage:", lat, long);
+      if (lat && long) {
+        setlt(lat);
+        setlng(long);
+      }
+    }
+  }, []); // ✅ פועל רק פעם אחת כשהרכיב נטען
+  useEffect(() => {
+    if (lt !== null && lng !== null) {
+      setLatitude(lt);
+      setLongitude(lng);
+      setMapCenter(fromLonLat([lng, lt])); // שינוי מרכז המפה
+    }
+  }, [lt, lng]);
 
   // שמירה על שם המשתמש אם הוא מחובר
   useEffect(() => {
@@ -132,13 +157,13 @@ function MapWithRadius() {
       .get('http://localhost:5000/show-all-transmitter-on-map')
       .then((response) => {
         console.log('Transmitters:', response.data); // בדוק את התגובה מהשרת
-          setallTransmitteronmap(response.data);
+          seta(response.data);
       })
       .catch((error) => {
         console.error('Error fetching Transmitter:', error);
       });
   }, []);
-
+    const allTransmitteronmap = a.filter((t) => t.awaiting === false);
     // פונקציה לחישוב אם משדר נמצא בתוך האזור
     const isTransmitterInCoverage = (transmitter: Transmitter, coverage: Coverage) => {
       const distance = getDistance(
@@ -261,12 +286,16 @@ function MapWithRadius() {
         />
       </div>
     </div>
-
+    <div className="link-container">
+        <Link to="/Thumbnails" className="link-button">
+          🛰️ Go to Thumbnails
+        </Link>
+      </div>
       <Grph/>
       <SideButton/>
       <RMap
         className="map"
-        initial={{ center: fromLonLat([longitude, latitude]), zoom: 13 }}
+        initial={{ center: mapCenter, zoom: 13 }}
         onClick={handleMapClick}
       >
         <RLayerTile url="https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png" />

@@ -4,8 +4,17 @@ import Header from './Components/Layout/header/Header';
 import HighContrast from './HighContrast';
 import LargeText from './LargeText';
 //import Footer from './Components/Layout/Footer';
-
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './Pages/login/Login';
+import HomePage from './Pages/homepage/HomePage';
+import Map from '../src/Pages/System/Map';
+import SighnUp from './Pages/sighnup/SighnUp';
+import ChangePassword from './Pages/changepassword/ChangePassword';
+import Chat from './Additives/Chat';
+import ForgetApassword from './Pages/ForgetApassword';
+import CheckPassword from './Pages/CheckPassword';
+import CreateNewPassword from './Pages/CreateNewPassword';
+import TransmitterThumbnails from './Pages/System/TransmitterThumbnails/TransmitterThumbnails';
 const TIME_SINCE_YG = 86400000
 
 
@@ -41,27 +50,31 @@ function App() {
   }, []);
 
   return (
+    <BrowserRouter>
     <div className={`App`}>
       
       <header>
-        <Header />
         <span className="Time">{time} |</span>
         <div className="accessibility-buttons">
           <LargeText/>
           <HighContrast/>
         </div>
+        <Routes>
+          <Route path="/" element={<Header/>} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/homepage" element={<HomePage />} />
+          <Route path="/system" element={<Map />} />
+          <Route path="/sighnup" element={<SighnUp />} />
+          <Route path="/change-password" element={<ChangePassword />} />
+          <Route path="/go-to-chat" element={<Chat />} />
+          <Route path="/forget-password" element={<ForgetApassword />} />
+          <Route path="/check" element={<CheckPassword />} />
+          <Route path="/createnewpassword" element={<CreateNewPassword />} />
+          <Route path="/Thumbnails" element={<TransmitterThumbnails />} />
+        </Routes>
       </header>
-
-      {visible && (
-        <div className="timer-box">
-          <button id="X" onClick={handleClose}>X</button>
-          <h1>Before {days} days</h1>
-          <h2>אל תעשו י"ג "ד <br />זו תרמית</h2>
-        </div>
-      )}
-
-     
     </div>
+    </BrowserRouter>
   );
 }
 

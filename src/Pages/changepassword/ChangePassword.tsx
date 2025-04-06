@@ -4,12 +4,11 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import BackBtn from '../../BackBtn';
-
+import Inputs from '../Inputs/Inputs/Inputs';
 
 function ChangePassword() {
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const [new_password, setnewPassword] = useState('');
     const [new_name, setnewName] = useState('');
 
     const navigate = useNavigate();
@@ -23,7 +22,6 @@ function ChangePassword() {
         
         await axios.post('http://localhost:5000/change-password', {
           new_name: new_name,
-          new_password: new_password,
           password: password,//password,  // שליחת הסיסמה לשרת
           name: name,//name
         })
@@ -75,38 +73,9 @@ function ChangePassword() {
     
   return (
     <div className="ChangePassword">
-        <input
-        type="text"
-        value={new_name}
-        onChange={(e) => setnewName(e.target.value)} // שם נוכחי
-        placeholder="Enter your new name"
-         className="login-input"
-         onKeyDown={handleKeyDown}
-        />
-        <input
-        type="password"
-        value={new_password}
-        onChange={(e) => setnewPassword(e.target.value)} //ססמא נוכחית
-        placeholder="Enterv your new password"
-         className="login-input"
-         onKeyDown={handleKeyDown}
-        />
-        <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)} // עדכון הסיסמה ב-state
-        placeholder="Enter name"
-         className="login-input"
-         onKeyDown={handleKeyDown}
-        />
-        <input
-        type="text"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)} // עדכון הסיסמה ב-state
-        placeholder="Enter password"
-         className="login-input"
-         onKeyDown={handleKeyDown}
-        />
+        <Inputs type='text' value={new_name} onChange={(e) => setnewName(e.target.value)} placeHolder='Enter your new name' className='login-input' onKeyDown={handleKeyDown} required/>
+        <Inputs type='text' value={name} onChange={(e) => setName(e.target.value)} placeHolder='Enter name' className='login-input' onKeyDown={handleKeyDown} required/>
+        <Inputs type='text' value={password} onChange={(e) => setPassword(e.target.value)} placeHolder='Enter password' className='login-input' onKeyDown={handleKeyDown} required/>
         <br/>
         <button  onClick={apiCall} className="login-button">change password</button>
         <BackBtn/>
